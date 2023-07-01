@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "http://localhost:8080/employee";
+const BASE_URL = "http://localhost:8080/employ/create";
 
 class EmployeeService {
   saveEmployee(employee) {

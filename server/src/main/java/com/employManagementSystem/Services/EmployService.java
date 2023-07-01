@@ -1,5 +1,9 @@
 package com.employManagementSystem.Services;
 
-public class EmployService {
-    
+import com.employManagementSystem.Entity.EmployEntity;
+import com.employManagementSystem.Model.Employ;
+
+public interface EmployService {
+    EmployEntity createEmploy(Employ employ);
+
 }
