@@ -1,15 +1,14 @@
-package com.employManagement.Controller;
+package com.employManagementSystem.Controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("employee")
-public class EmployeeController {
-    
+@RequestMapping("/employ")
+public class EmployController {
     @GetMapping("/hello")
     public String hello(){
-        return "Hello World! The server is running fine.";
-    }
+        return "Hello Mate! Server is running fine.";
+    }    
 }
