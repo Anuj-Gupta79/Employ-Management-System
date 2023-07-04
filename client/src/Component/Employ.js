@@ -1,7 +1,12 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Employ = ({ employee, deleteEmployee }) => {
+  const navigate = useNavigate();
+  const updateEmployee = (e, id) => {
+    navigate('/updateEmployee/' + id)
+  }
   return (
     <tr key={employee.id}>
       <td className="text-center px-6 py-4 whitespace-nowrap border-x-2">
@@ -18,7 +23,7 @@ const Employ = ({ employee, deleteEmployee }) => {
       </td>
       <td className="text-center px-6 py-4 whitespace-nowrap font-medium text-sm border-x-2">
         <a
-          // onClick={(e, id) => editEmployee(e, employee.id)}
+          onClick={(e, id) => updateEmployee(e, employee.id)}
           className="text-indigo-600 hover:text-indigo-800 px-4 hover:cursor-pointer"
         >
           Edit

@@ -14,6 +14,14 @@ class EmployeeService {
   deleteEmployee(id){
     return axios.delete(BASE_URL + "/delete/" + id);
   }
+
+  updateEmployee(employee, id) {
+    return axios.put(BASE_URL + "/update/" + id, employee);
+  }
+
+  getEmployeeById(id){
+    return axios.get(BASE_URL + "/show/" + id);
+  }
 }
 
 // eslint-disable-next-line import/no-anonymous-default-export

@@ -14,7 +14,6 @@ function AddEmployee() {
 
   const handleChange = (e) => {
     setEmployee({...employee, [e.target.name] : e.target.value});
-    
   }
 
   const saveEmployee = (e) => {
@@ -39,8 +38,8 @@ function AddEmployee() {
 
   return (
     <div className="flex max-w-2xl mx-auto shadow border-b mt-20 bg-slate-50">
-      <div className="px-8 py-8">
-        <div className="font-thin text-2xl tracking-wider">
+      <div className="px-8 py-8"> 
+        <div className="font-semibold  text-slate-600 text-2xl tracking-wider ">
           <h1>Add New Employee</h1>
         </div>
         <div className="items-center justify-center h-14 w-full my-4">

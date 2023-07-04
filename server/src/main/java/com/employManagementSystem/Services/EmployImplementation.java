@@ -31,8 +31,11 @@ public class EmployImplementation implements EmployService {
     }
 
     @Override
-    public Optional<EmployEntity> getEmployById(Long id) {
-        return employRepository.findById(id);
+    public Employ getEmployById(Long id) {
+        EmployEntity employEntity = employRepository.findById(id).get();
+        Employ employ = new Employ();
+        BeanUtils.copyProperties(employEntity, employ);
+        return employ;
     }
 
     @Override
@@ -57,4 +60,16 @@ public class EmployImplementation implements EmployService {
         employRepository.delete(employee);
         return true;
     }
+
+    @Override
+    public Employ updateEmployee(Long id, Employ employ) {
+        EmployEntity employEntity = employRepository.findById(id).get();
+        employEntity.setFirstName(employ.getFirstName());
+        employEntity.setLastName(employ.getLastName());
+        employEntity.setEmailId(employ.getEmailId());
+        employRepository.save(employEntity);
+        return employ;
+    }
+
+    
 }

@@ -3,7 +3,6 @@ package com.employManagementSystem.Controller;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -12,6 +11,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -44,8 +44,10 @@ public class EmployController {
     }
 
     @GetMapping("/show/{id}")
-    public Optional<EmployEntity> getEmployById(@PathVariable Long id){
-        return employService.getEmployById(id);
+    public ResponseEntity<Employ> getEmployById(@PathVariable Long id){
+        Employ employ = null;
+        employ = employService.getEmployById(id);
+        return ResponseEntity.ok(employ);
     }
 
     @DeleteMapping("/delete/{id}")
@@ -55,6 +57,12 @@ public class EmployController {
         Map<String, Boolean> response = new HashMap<>();
         response.put("deleted", deleted);
         return ResponseEntity.ok(response);
+    }
+
+    @PutMapping("/update/{id}")
+    public ResponseEntity<Employ> updateEmployee(@PathVariable Long id, @RequestBody Employ employ){
+        employ = employService.updateEmployee(id, employ);
+        return ResponseEntity.ok(employ);
     }
 
 
